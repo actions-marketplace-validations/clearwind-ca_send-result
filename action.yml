@@ -5,10 +5,20 @@ inputs:
     description: 'The filename of the payload'
     required: false
     default: '/tmp/service-catalog-payload.json'
+  payload:
+    description: 'The payload of the service catalog request'
+    required: false
+    default: ${{ github.event.client_payload.data }}
   result_file:
     description: 'The filename of the result'
     required: false
     default: '/tmp/service-catalog-result.json'
+  result:
+    description: 'The result of the health check'
+    required: false
+  message:
+    description: 'A message with more detail on the health check'
+    required: false
 runs:
   using: 'node16'
   main: 'result.js'
